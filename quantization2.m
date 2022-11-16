@@ -1,0 +1,12 @@
+f = 1;
+fs = 40;
+n = 1 : 40;
+y = cos(2*pi*f/fs*n) + 10 * sin(2*pi*f/fs*n);
+subplot(1,1,1);
+plot(n,y);
+hold on;
+b = 5;
+label = 2^(b - 1)-1;
+max_amplitude = max(abs(y));
+yq = (floor((y * label)/max_amplitude + 0.5))/ label * max_amplitude;
+stem(n, yq);
